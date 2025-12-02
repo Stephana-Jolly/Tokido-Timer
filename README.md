@@ -21,11 +21,6 @@ It is inspired by lofi productivity tools and nostalgic retro UI design.
 
 ---
 
-## 📸 Preview
-
-
----
-
 ## 🚀 How To Run Locally
 
 ```bash
