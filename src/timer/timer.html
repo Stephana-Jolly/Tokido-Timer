@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokido Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/global.css"/>
+    <link rel="stylesheet" href="../styles/timer.css"/>
+</head>
+
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="top-bar">
+            <h2>Tokido Timer</h2>
+            <div class="window-controls">
+                <button class="control-btn" id="minimizeBtn" aria-label="Minimize">
+                    <img src="../assets/image/shrink-icon.jpeg" alt="Minimize"/>
+                </button>
+                <button class="control-btn" id="closeBtn" aria-label="Close">
+                    <img src="../assets/image/close-icon.jpeg" alt="Close"/>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- PAGE TOGGLE BUTTONS -->
+    <div class="page-toggle">
+        <button class="toggle-btn active" id="timerTab">Timer</button>
+        <button class="toggle-btn" id="stopwatchTab">Stopwatch</button>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <main>
+        <div class="container">
+            <!-- Single Timer Circle -->
+            <div class="timer-circle">
+                <!-- Minute markers INSIDE circle -->
+                <div class="minute-markers">
+                    <span class="marker" style="--angle: 0deg; --radius: 100px;">0</span>
+                    <span class="marker" style="--angle: 30deg; --radius: 100px;">5</span>
+                    <span class="marker" style="--angle: 60deg; --radius: 100px;">10</span>
+                    <span class="marker" style="--angle: 90deg; --radius: 100px;">15</span>
+                    <span class="marker" style="--angle: 120deg; --radius: 100px;">20</span>
+                    <span class="marker" style="--angle: 150deg; --radius: 100px;">25</span>
+                    <span class="marker" style="--angle: 180deg; --radius: 100px;">30</span>
+                    <span class="marker" style="--angle: 210deg; --radius: 100px;">35</span>
+                    <span class="marker" style="--angle: 240deg; --radius: 100px;">40</span>
+                    <span class="marker" style="--angle: 270deg; --radius: 100px;">45</span>
+                    <span class="marker" style="--angle: 300deg; --radius: 100px;">50</span>
+                    <span class="marker" style="--angle: 330deg; --radius: 100px;">55</span>
+                </div>
+                
+                <!-- SVG Circle with fill and knob -->
+                <svg class="timer-svg" width="300" height="300">
+                    <!-- LAYER 1: Light blue background circle -->
+                    <circle class="circle-bg" cx="150" cy="150" r="135" />
+                    
+                    <!-- LAYER 2: Dark fill (MUST be visible!) -->
+                    <path class="progress-fill" id="progressFill" d="" fill="#2e3e50" opacity="0.9" />
+                    
+                    <!-- LAYER 3: Clock hand pointing to remaining time -->
+                    <line class="clock-hand" id="clockHand" x1="150" y1="150" x2="150" y2="50" stroke="#1a2633" stroke-width="4" />
+                    
+                    <!-- LAYER 4: Clock ticks -->
+                    <g class="clock-ticks" id="clockTicks"></g>
+                    
+                    <!-- LAYER 5: Dark blue border on top -->
+                    <circle class="circle-border" cx="150" cy="150" r="135" />
+                    
+                    <!-- LAYER 6: Green knob (topmost) -->
+                    <circle class="time-knob" id="timeKnob" cx="150" cy="15" r="12" />
+                </svg>
+            </div>
+
+            <!-- Timer Display Below Circle -->
+            <div class="timer-display" id="display">00:00</div>
+
+            <!-- Control Buttons -->
+            <div class="timer-controls">
+                <button class="timer-btn" id="start">Start</button>
+                <button class="timer-btn reset-btn" id="reset">Reset</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ✅ Times Up Cute Mascot Toast -->
+    <div id="timesUpToast" class="toast hidden">
+    <img src="../assets/image/mascot.png" class="mascot" />
+    <div class="toast-bubble">
+        ⏰Time’s up! You did amazing
+    </div>
+    </div>
+
+    <script type="module" src="../renderer.js"></script>
+</body>
+</html>

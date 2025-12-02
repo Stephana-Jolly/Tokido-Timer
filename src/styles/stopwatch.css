@@ -1,0 +1,125 @@
+/* Stopwatch CSS Stylesheet */
+/* Timer display container with additional background */
+.stopwatch-display {
+    width: 350px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Make a circle */
+    border-radius: 60%;
+
+    /* Soft pixel-light background */
+    background: #66bbda;  
+
+    /* Pixel border */
+    border: 6px solid #2e6ba3;  /* dark retro blue */
+
+    /* Pixel shadow (outer outline look) */
+    box-shadow:
+        0 0 0 4px #76b4e8,   /* highlight outer border */
+        0 6px 0 #296bad,     /* bottom pixel drop shadow */
+        0 8px 12px rgba(0, 0, 0, 0.25); /* soft glow */
+    
+    padding: 20px;
+
+    font-family: "Press Start 2P", cursive;
+    color: #457fb9;
+    font-size: 18px;
+}
+
+
+/* stopwatch text */
+#stopwatchDisplay {
+    font-size: 48px;
+    color: #195e93;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Timer control buttons container */
+.stopwatch-controls {
+    display: flex;
+    justify-content: center; /* ✅ Center horizontally */
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Individual timer buttons */
+.stopwatch-btn {
+    width: 140px;
+    height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #fff;
+    background-color: #3ab0db;
+    border: 4px solid #0d6bad;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+.stopwatch-btn:hover {
+    background-color: #18395c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.stopwatch-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stopwatch-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Reset button variant */
+.stopwatch-btn.reset-btn {
+    background-color: #3ab0db;
+    border-color: #0d6bad;
+}
+
+.stopwatch-btn.reset-btn:hover {
+    background-color: #18395c;
+}
+
+/* ==================== TIMER / STOPWATCH TOGGLE ==================== */
+.page-toggle {
+    display: flex;
+    justify-content: center; /* ✅ Center the toggle buttons */
+    gap: 18px;
+    margin-top: 6px;
+    margin-bottom: -25px;
+    z-index: 5;
+    width: 100%
+}
+
+.toggle-btn {
+  width: 110px;
+  height: 35px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  background: #76b4e8;
+  border: 3px solid #2e6ba3;
+  color: #053356;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.toggle-btn.active {
+  background: #2e6ba3;
+  color: #fff;
+}
+
+.toggle-btn:hover {
+  transform: translateY(-1px);
+}

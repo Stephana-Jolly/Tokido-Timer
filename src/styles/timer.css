@@ -1,0 +1,265 @@
+/* ==================== TIMER PAGE SPECIFIC ==================== */
+
+/* Single timer circle container */
+.timer-circle {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: -7px;
+    transform: translateY(10px);
+}
+
+/* SVG for circle and knob */
+.timer-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Light blue background circle */
+.circle-bg {
+    fill: #95ddf7;
+    stroke: none;
+}
+
+/* Dark blue border */
+.circle-border {
+    fill: none;
+    stroke: #2e6ba3;
+    stroke-width: 8;
+}
+
+/* Clock ticks around the edge - REMOVED/HIDDEN */
+.clock-ticks line {
+    stroke: #2e6ba3;
+    stroke-width: 2;
+    stroke-linecap: round;
+    display: none; /* Hidden since we removed ticks */
+}
+
+/* Dark progress fill */
+.progress-fill {
+    fill: #2e3e50;
+    opacity: 0.75;
+}
+
+/* Clock hand pointing to end of fill */
+.clock-hand {
+    stroke: #2e3e50;
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.clock-hand.visible {
+    opacity: 1;
+}
+
+/*  draggable knob on border */
+.time-knob {
+    fill: #0372cd;
+    stroke: #49bfda;
+    stroke-width: 4;
+    cursor: grab;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: opacity 0.3s ease-in-out, fill 0.2s ease;
+    opacity: 1;
+}
+
+.time-knob:hover {
+    fill: #051b5e;
+}
+
+.time-knob:active {
+    cursor: grabbing;
+    fill: #0538a4;
+}
+
+
+/* Minute markers positioned INSIDE circle */
+.minute-markers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.marker {
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    color: #1a4d6b;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: 
+        translate(-50%, -50%) 
+        rotate(var(--angle)) 
+        translateY(calc(var(--radius) * -1)) 
+        rotate(calc(var(--angle) * -1));
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Timer display below circle */
+.timer-display {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 36px;
+    color: #2e6ba3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 7px;
+    margin-top: -12px;
+    letter-spacing: 2px;
+}
+
+/* ==================== TOAST NOTIFICATION ==================== */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.toast.hidden {
+  display: none;
+}
+
+.mascot {
+  width: 50px;
+  height: 50px;
+  image-rendering: pixelated;
+}
+
+.toast-bubble {
+  background: #a3d1eb;
+  color: #3a5c8a;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  animation: floatUp 0.4s ease;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ==================== PAGE TOGGLE BUTTONS ==================== */
+.page-toggle {
+    display: flex;
+    justify-content: center; /* ✅ Center the toggle buttons */
+    gap: 18px;
+    margin-top: 6px;
+    margin-bottom: -25px;
+    z-index: 5;
+    width: 100%
+}
+
+.toggle-btn {
+    width: 140px;
+    height: 40px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #fff;
+    background-color: #3ab0db;
+    border: 4px solid #0d6bad;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}   
+
+.toggle-btn.active {
+    background: #2e6ba3;
+    color: #fff;
+}
+
+.toggle-btn:hover {
+    background-color: #18395c;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==================== CONTROL BUTTONS ==================== */
+.timer-controls {
+    display: flex;
+    gap: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+
+}
+
+.timer-btn {
+    width: 140px;
+    height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: #3c5e8b;
+    background-color: #3ab0db;
+    border: 4px solid #0d6bad;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+.timer-btn:hover {
+    background-color: #18395c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.timer-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timer-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background-color: #5a7a8f;
+}
+
+.timer-btn.reset-btn {
+    background-color: #3ab0db;
+    border-color: #0d6bad;
+}
+
+.timer-btn.reset-btn:hover {
+    background-color: #18395c;
+}
+
+.back-btn {
+  margin-right: 2px;
+}
+
+/* ✅ Allow knob dragging inside Electron */
+.timer-circle,
+.timer-svg,
+.time-knob,
+.minute-markers {
+  -webkit-app-region: no-drag;
+}
