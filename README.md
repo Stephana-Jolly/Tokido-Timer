@@ -36,7 +36,7 @@ npm start
 This project was built to practice:
 
 - Electron app development
-- Practice custom UI design
+- Custom UI design
 - Desktop app window handling
 - JavaScript module structuring
 
@@ -44,5 +44,6 @@ This project was built to practice:
 
 ## 📬 Author
 Stephana Jolly
+
 If you'd like to give feedback:
 GitHub: https://github.com/Stephana-Jolly
