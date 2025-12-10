@@ -14,10 +14,11 @@ It is inspired by lofi productivity tools and nostalgic retro UI design.
 
 ---
 
-## 🛠 Built With
-- Electron.js  
-- HTML, CSS, JavaScript  
-- Node.js  
+## 🛠 Tech Stack
+- Electron.js - Desktop application framework
+- JavaScript – Core logic
+- HTML5 & CSS3 – UI and layout
+- SVG – Circular timer visualization
 
 ---
 
@@ -41,7 +42,8 @@ This project was built to practice:
 
 ---
 
-## 📬 Contact
+## 📬 Author
+Stephana Jolly
 
-If you'd like to collaborate or give feedback:
+If you'd like to give feedback:
 GitHub: https://github.com/Stephana-Jolly
