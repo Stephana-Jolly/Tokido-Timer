@@ -1,16 +1,14 @@
 let time = 0;
 let interval = null;
-let isRunning = false; // ✅ ADDED: Track running state
+let isRunning = false; 
 
 export function startTimer(display) {
-  // ✅ FIXED: Toggle start/pause functionality
   if (isRunning) {
     // Pause
     clearInterval(interval);
     interval = null;
     isRunning = false;
     
-    // Update button text
     const startBtn = document.getElementById("start");
     if (startBtn) startBtn.textContent = "Start";
     return;
@@ -37,7 +35,7 @@ export function resetTimer(display) {
   clearInterval(interval);
   interval = null;
   time = 0;
-  isRunning = false; // ✅ ADDED: Reset running state
+  isRunning = false; 
   display.textContent = "00:00";
   
   // ✅ ADDED: Reset button text

@@ -1,6 +1,6 @@
-// ✅ FIXED: Better audio initialization
+// ==================== ALARM SOUND ====================
 const alarmSound = document.createElement("audio");
-// Use relative path that works in both dev and production
+
 alarmSound.src = "../assets/sounds/alarm.mp3";   
 alarmSound.preload = "auto";
 alarmSound.volume = 1.0;
@@ -37,7 +37,7 @@ const fillRadius = 120;
 const timesUpToast = document.getElementById("timesUpToast");
 
 function showTimesUpToast() {
-  if (!timesUpToast) return; // ✅ ADDED: Safety check
+  if (!timesUpToast) return; 
   
   timesUpToast.classList.remove("hidden");
   timesUpToast.classList.add("show");
@@ -55,7 +55,6 @@ function createClockTicks() {
     const ticksContainer = document.getElementById("clockTicks");
     if (!ticksContainer) return;
     
-    // Ticks are removed - keeping function for structure
 }
 
 // ==================== HELPER FUNCTIONS ====================
@@ -84,13 +83,13 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 
 // ==================== KNOB VISIBILITY ====================
 function showKnob() {
-    if (!timeKnob) return; // ✅ ADDED: Safety check
+    if (!timeKnob) return; 
     timeKnob.style.display = "block";
     timeKnob.style.opacity = "1";
 }
 
 function hideKnob() {
-    if (!timeKnob) return; // ✅ ADDED: Safety check
+    if (!timeKnob) return; 
     timeKnob.style.opacity = "0";
     setTimeout(() => {
         if (isRunning || remainingSeconds === 0) {
@@ -103,12 +102,12 @@ function hideKnob() {
 let isDragging = false;
 
 function updateKnobPosition(minutes) {
-    if (!timeKnob) return; // ✅ ADDED: Safety check
+    if (!timeKnob) return; 
     
     minutes = Math.round(minutes);
     
     // Position knob on border
-    const angle = (minutes * 6) - 90; // 6 degrees per minute
+    const angle = (minutes * 6) - 90; 
     const radians = (angle * Math.PI) / 180;
     
     const x = centerX + borderRadius * Math.cos(radians);
@@ -126,7 +125,7 @@ function updateKnobPosition(minutes) {
 
 function getMinutesFromPoint(clientX, clientY) {
     const svg = document.querySelector(".timer-svg");
-    if (!svg) return 0; // ✅ ADDED: Safety check
+    if (!svg) return 0; 
     
     const rect = svg.getBoundingClientRect();
     const svgX = clientX - rect.left;
@@ -138,7 +137,7 @@ function getMinutesFromPoint(clientX, clientY) {
     let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
     angle = (angle + 90 + 360) % 360;
     
-    const minutes = Math.round(angle / 6); // 6 degrees per minute
+    const minutes = Math.round(angle / 6); 
     return Math.min(60, Math.max(0, minutes));
 }
 
@@ -239,7 +238,7 @@ function updateDisplay() {
 
 // ==================== TIMER LOGIC ====================
 export function startTimer() {
-    if (!startBtn) return; // ✅ ADDED: Safety check
+    if (!startBtn) return; 
     
     if (isRunning) {
         // Pause timer
@@ -294,7 +293,7 @@ export function startTimer() {
 }
 
 export function resetTimer() {
-    if (!startBtn) return; // ✅ ADDED: Safety check
+    if (!startBtn) return; 
     
     clearInterval(interval);
     interval = null;

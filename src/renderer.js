@@ -31,7 +31,6 @@ async function initTimer() {
 
   if (display && startBtn && resetBtn) {
     try {
-      // ✅ FIXED: Correct path relative to src folder
       const { startTimer, resetTimer } = await import("./timer/timer.js");
 
       startBtn.addEventListener("click", () => {
@@ -53,7 +52,7 @@ async function initStopwatch() {
   const startBtn = document.getElementById("start");
   const resetBtn = document.getElementById("reset");
 
-  // Added stopwatch initialization
+  
   if (display && startBtn && resetBtn) {
     try {
       const { startTimer, resetTimer } = await import("./timer/stopwatch.js");
